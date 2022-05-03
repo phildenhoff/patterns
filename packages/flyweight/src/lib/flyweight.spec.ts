@@ -63,12 +63,12 @@ describe('flyweight', () => {
     );
     const test1 = fwCreateTestClass('test1', 1, 'red');
     expect(() => {
-      // @ts-ignore
+      // @ts-ignore We want to test this error
       test1.name = 'test2';
     }).toThrow();
 
     expect(() => {
-      // @ts-ignore
+      // @ts-ignore We want to test this error
       Object.assign(test1, { id: 2 });
     }).toThrow();
   });
