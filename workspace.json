@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "observer": "packages/observer",
     "proxy": "packages/proxy"
   }
 }
