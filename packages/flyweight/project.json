@@ -1,0 +1,32 @@
+{
+  "root": "packages/flyweight",
+  "sourceRoot": "packages/flyweight/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/flyweight",
+        "main": "packages/flyweight/src/index.ts",
+        "tsConfig": "packages/flyweight/tsconfig.lib.json",
+        "assets": ["packages/flyweight/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/flyweight/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/flyweight"],
+      "options": {
+        "jestConfig": "packages/flyweight/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

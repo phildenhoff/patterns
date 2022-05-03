@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@patterns/flyweight": ["packages/flyweight/src/index.ts"],
       "@patterns/observer": ["packages/observer/src/index.ts"],
       "@patterns/proxy": ["packages/proxy/src/index.ts"]
     }
