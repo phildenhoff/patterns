@@ -1,9 +1,9 @@
 export type CachableStats = {
-  cacheHitRatio: number,
-  cacheMissRatio: number,
-  cacheHits: number,
-  cacheMisses: number,
-  numFlyweights: number
+  cacheHitRatio: number;
+  cacheMissRatio: number;
+  cacheHits: number;
+  cacheMisses: number;
+  numFlyweights: number;
 };
 
 export const createFlyweight = <
@@ -36,7 +36,9 @@ export const createFlyweight = <
       }
       cacheMisses++;
 
-      const newFlyweight = createCachable.apply(undefined, args);
+      // @ts-ignore We can't use `.apply()`, and `args` doesn't
+      // implement `Iterable` (it does).
+      const newFlyweight = createCachable(...args);
       flyweights.add(newFlyweight);
 
       return Object.freeze(newFlyweight);
@@ -45,9 +47,9 @@ export const createFlyweight = <
     () => ({
       cacheHits: cacheHits,
       cacheMisses: cacheMisses,
-      cacheHitRatio : cacheHits / (cacheHits + cacheMisses),
+      cacheHitRatio: cacheHits / (cacheHits + cacheMisses),
       cacheMissRatio: cacheMisses / (cacheHits + cacheMisses),
-      numFlyweights: flyweights.size
+      numFlyweights: flyweights.size,
     }),
   ];
 };
