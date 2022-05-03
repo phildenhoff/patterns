@@ -1,0 +1,32 @@
+{
+  "root": "packages/observer",
+  "sourceRoot": "packages/observer/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/observer",
+        "main": "packages/observer/src/index.ts",
+        "tsConfig": "packages/observer/tsconfig.lib.json",
+        "assets": ["packages/observer/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/observer/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/observer"],
+      "options": {
+        "jestConfig": "packages/observer/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
