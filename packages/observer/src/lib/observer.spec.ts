@@ -9,7 +9,7 @@ describe('createObserver', () => {
 
   it('must provide an unsubscribe function via subscribe', () => {
     const observer = createObserver<number>();
-    const unsubscribe = observer.subscribe(() => {});
+    const unsubscribe = observer.subscribe(() => undefined);
     expect(typeof unsubscribe).toEqual('function');
   });
 
