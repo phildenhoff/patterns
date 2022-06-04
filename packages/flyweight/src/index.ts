@@ -1,1 +1,1 @@
-export * from './lib/flyweight';
+export * from './lib/tree';
